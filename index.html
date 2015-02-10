@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Ubuntu' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="static/css/styles.css">
+	<title>Obtener la Discografía</title>
+</head>
+<body>
+	<section class="Obtainer" id="obtainer">
+		<div class="Obtainer-content">
+			<div class="Obtainer-header">
+				<h1 class="Obtainer-title">Obtener Discografía</h1>
+			</div>
+			<div class="Obtainer-form">
+				<input type="text" class="Obtainer-input" placeholder="Escribe el artista" id="artistName">
+				<button class="Btn Btn--red" id="submit-btn">Enviar</button>
+			</div>
+			<div class="Obtainer-footer">
+				<span class="Obtainer-footer-text">
+					by <strong> <a href="https://twitter.com/ederyairr">ederyairr </a></strong>
+				</span>
+			</div>
+		</div>
+	</section>
+	<section class="Albums" id="Albums">
+		
+		
+	</section>
+	<footer class="Footer">
+		<ul class="Footer-menu">
+			<li class="Footer-item">
+				<a href="https://github.com/ederyair" class="icon-github"></a>
+			</li>
+			<li class="Footer-item">
+				<a href="https://twitter.com/ederyairr" class="icon-twitter3"></a>
+			</li>
+		</ul>
+	</footer>
+	<script id="numberOf-Albums" type="text/x-handlebars-template">​
+	<button class="Btn Btn--red" id="returnBtn">Regresar</button>
+		<span class="Albums-number u-block" id="Albums-number">
+			{{artistName}} tiene {{numberOfAlbums}} discos
+		</span>
+	</script>
+
+	<script id="album-template" type="text/x-handlebars-template">​
+ 		
+		<div class="Albums-album">
+			<figure class="Albums-artwork-container">
+				<img src={{Artwork}} alt="" class="Albums-artwork" id="Albums-artwork">
+			</figure>
+			<span class="Albums-name" id="Album-name">
+				{{Albumname}}
+			</span>
+		</div>
+​	</script>
+	<script src="vendors/jquery.js"></script>
+	<script src="vendors/handlebars.js"></script>
+	<script src="static/js/app.js"></script>
+</body>
+</html>

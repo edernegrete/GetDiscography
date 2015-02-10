@@ -1,0 +1,16 @@
+@import 'fonts.css';
+a{color:#000;text-decoration:none}
+body{background:#2a6282;color:#e4dbdb;font-size:100%;font-family:'Lato'}
+.Albums{background:#1f4d67;text-align:center;}
+.Albums-number{text-transform:uppercase}
+.Obtainer{background:#1f4d67;display:table;text-align:center;-webkit-transition:1s;-moz-transition:1s;-o-transition:1s;-ms-transition:1s;transition:1s;font-family:'Ubuntu',sans-serif;height:360px;width:100%;}
+.Obtainer.is-animated{margin-top:-365px}
+.Obtainer-content{display:table-cell;vertical-align:middle}
+.Obtainer-input{margin:1em auto;display:block;font-size:1.2rem}
+.Obtainer-footer{text-align:left}
+.Footer-menu{text-align:right}
+.Footer-item{font-size:2rem;margin-right:.5rem;display:inline-block}
+.Btn{border:none;-webkit-border-radius:10px;border-radius:10px;cursor:pointer;font-size:1.2rem;padding:.5rem 1rem;}
+.Btn:active{-webkit-transform:scale(.9);-moz-transform:scale(.9);-o-transform:scale(.9);-ms-transform:scale(.9);transform:scale(.9)}
+.Btn--red{background:#f44336;border-bottom:2px solid #52312f}
+.u-block{display:block}
