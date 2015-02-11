@@ -38,5 +38,9 @@ $(function(){
 		$('#Albums').html('')
 	}
 	$(submitBtn).on('click', submit)
-	
+	$('#artistName').keypress(function (e){
+		if(e.which == 13){
+			submit()
+		}
+	})
 })
