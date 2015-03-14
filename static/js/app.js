@@ -4,12 +4,24 @@ $(function(){
 	
 	function submit () {
 		var artistName = $('#artistName').val();
-		var url = "http://itunes.apple.com/search?term=" + artistName +"&entity=album&callback=?"
+		var urlArtistName = "http://itunes.apple.com/search?term=" + artistName +"&entity=album&callback=?"
+		var urlArtistImage = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q="+ artistName +"&imgsz=medium&callback=?"
 		if(artistName == ''){
 			alert('Inserta un artista')
 			return false
 		}
-		$.getJSON(url).done(function(data){
+		console.log(urlArtistImage)
+		$.getJSON(urlArtistImage).done(function(data){
+			var image = data.responseData.results[2].url
+			var imageData = {
+				image : image
+			}
+			this.templateImage = Handlebars.compile($('#artist-image').html());
+			var templateImageData = this.templateImage(imageData)
+			$('#Artist').append(templateImageData)
+ 		});
+
+		$.getJSON(urlArtistName).done(function(data){
 				$('#obtainer').addClass('is-animated')
 				var numberOfAlbums = data.results.length
 				var numberOfAlbumdata = {
@@ -40,7 +52,7 @@ $(function(){
 	$(submitBtn).on('click', submit)
 	$('#artistName').keypress(function (e){
 		if(e.which == 13){
-			submit()
+			submit();
 		}
 	})
 })

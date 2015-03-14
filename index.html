@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Ubuntu' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="static/css/styles.css">
+<!-- 	<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Ubuntu' rel='stylesheet' type='text/css'>
+ -->	<link rel="stylesheet" href="static/css/styles.css">
 	<title>Obtener la Discografía</title>
 </head>
 <body>
@@ -12,6 +12,10 @@
 		<div class="Obtainer-content">
 			<div class="Obtainer-header">
 				<h1 class="Obtainer-title">Obtener Discografía</h1>
+			</div>
+
+			<div class="Artist" id="Artist">
+				
 			</div>
 			<div class="Obtainer-form">
 				<input type="text" class="Obtainer-input" placeholder="Escribe el artista" id="artistName">
@@ -41,7 +45,7 @@
 	<script id="numberOf-Albums" type="text/x-handlebars-template">​
 	<button class="Btn Btn--red" id="returnBtn">Regresar</button>
 		<span class="Albums-number u-block" id="Albums-number">
-			{{artistName}} tiene {{numberOfAlbums}} discos
+			mostrando {{numberOfAlbums}} albums, de {{artistName}}
 		</span>
 	</script>
 
@@ -56,6 +60,14 @@
 			</span>
 		</div>
 ​	</script>
+	<script id="artist-image" type="text/x-handlebars-template">
+		<figure class="Artist-container">
+					<img src="{{image}}" alt="" class="Artist-image">
+				</figure>
+				<figcaption class="Artist-name">
+					Bob Dylan
+				</figcaption>
+	</script>
 	<script src="vendors/jquery.js"></script>
 	<script src="vendors/handlebars.js"></script>
 	<script src="static/js/app.js"></script>
