@@ -56,6 +56,7 @@ $(function(){
 
 	$(submitBtn).on('click', function(){
 		$('#Artist').addClass('is-animated');
+		submit();
 	})
 	$('#artistName').keypress(function (e){
 		if(e.which === 13){
