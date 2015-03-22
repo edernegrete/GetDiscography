@@ -10,7 +10,7 @@ $(function(){
 		}
 			$.getJSON(urlArtistImage).done(function(data){
 				$('#Artist').removeClass('is-animated')
-				var image = data.responseData.results[2].url
+				var image = data.responseData.results[3].url
 				var imageData = {
 					image : image,
 					artistName: artistName
@@ -18,7 +18,8 @@ $(function(){
 				this.templateImage = Handlebars.compile($('#artist-image').html());
 				var templateImageData = this.templateImage(imageData)
 				$('#Artist').html(templateImageData)
-				albums(urlArtistName, artistName);
+				setTimeout(albums(urlArtistName, artistName), 2000);
+				
 	 		});
 		}
 	function albums(urlArtistName, artistName){
@@ -43,6 +44,7 @@ $(function(){
 				var templateData = this.albumTemplate(Albumsdata);
 				$('#Albums').append(templateData)
 			}
+			$('#Artist-image').addClass('is-animated');
 			$('#returnBtn').on('click', returnToSearch)
 		})
 
