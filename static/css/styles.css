@@ -7,10 +7,10 @@ body{background:#2a6282;color:#e4dbdb;font-size:100%;font-family:'Lato'}
 .Artist-image{-webkit-border-radius:50%;border-radius:50%;position:absolute;left:100px;height:200px;width:200px;}
 .Artist-image.is-animated{top:0}
 .Artist-container{-webkit-border-radius:50%;border-radius:50%;width:100%;height:100%;margin:0}
-.Albums{background:#1f4d67;text-align:center;padding-top:13em;}
+.Albums{background:#1f4d67;text-align:center;padding-top:9em;}
 .Albums-number{text-transform:uppercase}
 .Obtainer{background:#1f4d67;display:table;text-align:center;-webkit-transition:1s;-moz-transition:1s;-o-transition:1s;-ms-transition:1s;transition:1s;font-family:'Ubuntu',sans-serif;height:360px;width:100%;}
-.Obtainer.is-animated{margin-top:-440px}
+.Obtainer.is-animated{margin-top:-50%}
 .Obtainer-content{display:table-cell;vertical-align:middle}
 .Obtainer-input{background:transparent;border:none;border-bottom:1px solid #e4dbdb;margin:1em auto;color:#e4dbdb;display:block;outline:none;font-size:1.5rem;text-align:center;margin-top:2.5em}
 .Obtainer-footer{text-align:left}
@@ -21,6 +21,7 @@ body{background:#2a6282;color:#e4dbdb;font-size:100%;font-family:'Lato'}
 .Btn--red{background:#f44336;border-bottom:2px solid #52312f}
 .u-block{display:block}
 @media (min-width: 789px){.Obtainer-input{font-size:3rem}
+.Artist-image{left:397px}
 }@-moz-keyframes fill{0%{border:none}
 25%{border:0 solid transparent;border-right:2px solid #e4dbdb}
 50%{border:0 solid transparent;border-bottom:2px solid #e4dbdb}
