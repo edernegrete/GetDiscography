@@ -21,7 +21,7 @@ body{background:#2a6282;color:#e4dbdb;font-size:100%;font-family:'Lato'}
 .Btn--red{background:#f44336;border-bottom:2px solid #52312f}
 .u-block{display:block}
 @media (min-width: 789px){.Obtainer-input{font-size:3rem}
-.Artist-image{left:397px}
+.Artist-image{left:418px}
 }@-moz-keyframes fill{0%{border:none}
 25%{border:0 solid transparent;border-right:2px solid #e4dbdb}
 50%{border:0 solid transparent;border-bottom:2px solid #e4dbdb}
