@@ -1,5 +1,4 @@
 $(function(){
-	var submitBtn = $('#submit-btn');
 	function submit () {
 		var artistName = $('#artistName').val();
 		var urlArtistName = "http://itunes.apple.com/search?term=" + artistName +"&entity=album&callback=?"
@@ -18,14 +17,15 @@ $(function(){
 				this.templateImage = Handlebars.compile($('#artist-image').html());
 				var templateImageData = this.templateImage(imageData)
 				$('#Artist').html(templateImageData)
+
 				setTimeout(albums(urlArtistName, artistName), 2000);
 				
 	 		});
 		}
 	function albums(urlArtistName, artistName){
-
 		$.getJSON(urlArtistName).done(function(data){
-			$('#obtainer').addClass('is-animated')
+			$('#obtainer').addClass('is-animated');
+			$('#Artist-image').addClass('is-animated');
 			var numberOfAlbums = data.results.length
 			var numberOfAlbumdata = {
 				artistName: artistName,
@@ -46,6 +46,7 @@ $(function(){
 			}
 			$('#Artist-image').addClass('is-animated');
 			$('#returnBtn').on('click', returnToSearch)
+			$('.Albums').addClass('is-animated');
 		})
 
 	}
@@ -56,7 +57,7 @@ $(function(){
 		$('#Albums').html('')
 	}
 
-	$(submitBtn).on('click', function(){
+	$('#submit-btn').on('click', function(){
 		$('#Artist').addClass('is-animated');
 		submit();
 	})

@@ -1,19 +1,20 @@
 @import 'fonts.css';
 a{color:#000;text-decoration:none}
 body{background:#2a6282;color:#e4dbdb;font-size:100%;font-family:'Lato'}
-.Artist{border:3px solid #e4dbdb;-webkit-border-radius:50%;border-radius:50%;margin:0 auto;height:200px;width:200px;}
+.Artist{border:3px solid #e4dbdb;-webkit-border-radius:50%;border-radius:50%;margin:0 auto;height:200px;position:relative;width:200px;}
 .Artist.is-animated{-webkit-animation:fill 1s infinite;-moz-animation:fill 1s infinite;-o-animation:fill 1s infinite;-ms-animation:fill 1s infinite;animation:fill 1s infinite}
 .Artist-name{margin-top:1rem}
-.Artist-image{-webkit-border-radius:50%;border-radius:50%;position:absolute;left:80px;height:200px;width:200px;}
-.Artist-image.is-animated{top:0}
+.Artist-image{-webkit-border-radius:50%;border-radius:50%;width:100%;height:100%;}
+.Artist-image.is-animated{position:absolute;top:200%;left:0;width:200px;height:200px}
 .Artist-container{-webkit-border-radius:50%;border-radius:50%;width:100%;height:100%;margin:0}
-.Albums{background:#1f4d67;text-align:center;padding-top:13em;}
+.Albums{background:#1f4d67;text-align:center;}
 .Albums-number{text-transform:uppercase}
+.Albums.is-animated{padding-top:232px}
 .Obtainer{background:#1f4d67;display:table;text-align:center;-webkit-transition:1s;-moz-transition:1s;-o-transition:1s;-ms-transition:1s;transition:1s;font-family:'Ubuntu',sans-serif;height:360px;width:100%;}
-.Obtainer.is-animated{margin-top:-127%}
 .Obtainer-content{display:table-cell;vertical-align:middle}
 .Obtainer-input{background:transparent;border:none;border-bottom:1px solid #e4dbdb;margin:1em auto;color:#e4dbdb;display:block;outline:none;font-size:1.5rem;text-align:center;margin-top:2.5em}
 .Obtainer-footer{text-align:left}
+.Obtainer.is-animated{margin-top:-474px}
 .Footer-menu{text-align:right}
 .Footer-item{font-size:2rem;margin-right:.5rem;display:inline-block}
 .Btn{border:none;-webkit-border-radius:10px;border-radius:10px;cursor:pointer;font-size:1.2rem;padding:.5rem 1rem;}
@@ -21,8 +22,8 @@ body{background:#2a6282;color:#e4dbdb;font-size:100%;font-family:'Lato'}
 .Btn--red{background:#f44336;border-bottom:2px solid #52312f}
 .u-block{display:block}
 @media (min-width: 789px){.Obtainer-input{font-size:3rem}
-.Obtainer.is-animated{margin-top:-73%}
-.Artist-image{left:295px}
+.Albums-album{display:inline-block}
+.Albums.is-animated{padding-top:120px}
 }@-moz-keyframes fill{0%{border:none}
 25%{border:0 solid transparent;border-right:2px solid #e4dbdb}
 50%{border:0 solid transparent;border-bottom:2px solid #e4dbdb}

@@ -19,11 +19,13 @@ center(top='')
 btnstyle(background='',border-bottom='')
 	background background
 	border-bottom border-bottom
+//*fin mixins*//
 .Artist
 	border 3px solid white_A
 	border-radius 50%
 	center(0)
 	height 200px
+	position relative
 	width 200px
 	&.is-animated
 		animation fill 1s infinite
@@ -31,12 +33,14 @@ btnstyle(background='',border-bottom='')
 		margin-top 1rem
 	&-image
 		border-radius 50%
-		position absolute
-		left 80px
-		height 200px
-		width 200px
+		width 100%
+		height 100%
 		&.is-animated
-			top 0
+			position absolute
+			top 200%
+			left 0
+			width 200px
+			height 200px
 	&-container
 		border-radius 50%
 		width 100%
@@ -45,9 +49,10 @@ btnstyle(background='',border-bottom='')
 .Albums
 	background blue_B
 	text-align center
-	padding-top 13em
 	&-number
 		text-transform uppercase
+	&.is-animated
+		padding-top 232px
 .Obtainer
 	background blue_B
 	display table
@@ -56,8 +61,6 @@ btnstyle(background='',border-bottom='')
 	font-family 'Ubuntu', sans-serif
 	height 360px
 	width 100%
-	&.is-animated
-		margin-top -127%
 	&-content
 		display table-cell
 		vertical-align middle
@@ -74,6 +77,8 @@ btnstyle(background='',border-bottom='')
 		margin-top 2.5em
 	&-footer
 		text-align left
+	&.is-animated
+		margin-top -474px
 .Footer
 	&-menu
 		text-align right
@@ -112,7 +117,8 @@ btnstyle(background='',border-bottom='')
 	.Obtainer
 		&-input
 			font-size 3rem
+	.Albums
+		&-album
+			display inline-block
 		&.is-animated
-			margin-top -73%
-	.Artist-image
-		left 295px
+			padding-top 120px
