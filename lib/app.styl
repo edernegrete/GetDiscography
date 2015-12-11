@@ -1,0 +1,41 @@
+@import 'nib'
+grayA = #525564
+grayB = #74828F
+grayC = #BEB9B5
+blueA = #96C0CE
+redA = #C25B56
+redB = #4A2B29
+whiteA = #FEF6EB
+btnstyle(background='',border-bottom='')
+	background background
+	border-bottom border-bottom
+a
+	text-decoration none
+	color white
+h1, figure
+	margin 0
+img
+	width 100%
+body
+	box-sizing border-box
+	font-family 'Ubuntu'
+	font-size 16px
+	background grayA
+.btn
+	border none
+	border-radius 10px
+	cursor pointer
+	font-size 1.2rem
+	padding .5rem 1rem
+	margin-top 1em
+	&:active
+		transform scale(.9)
+	&--red
+		btnstyle(redA,2px solid redB)
+@import './layout/styles.styl'
+@import './obtainer/styles.styl'
+@import './header/styles.styl'
+@import './artist/styles.styl'
+@import './credits/styles.styl'
+@import './form/styles.styl'
+@import './albums/styles.styl'
