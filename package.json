@@ -1,6 +1,6 @@
 {
   "name": "get-discograpgy",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Get discography of your fav artists",
   "author": "Eder Gonzalez <ederyirnglz@gmail.com>",
   "private": true,
