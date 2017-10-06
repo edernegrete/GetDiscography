@@ -49,4 +49,12 @@ export default {
       outline none
     &::placeholder
       color #666666
+  @media screen and (max-width: 520px)
+    .search
+      padding 0.5rem
+    .icon
+      top 50px
+      font-size 200%
+    .b-input
+      font-size 35px
 </style>
