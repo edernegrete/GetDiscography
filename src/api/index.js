@@ -9,6 +9,6 @@ export function getAlbums(key) {
   })));
 }
 export function getImage(key) {
-  const IMAGE_URL = `http://ws.audioscrobbler.com/2.0/?artist=${key}&api_key=${API_KEY}&format=json&method=artist.getinfo`;
+  const IMAGE_URL = `https://ws.audioscrobbler.com/2.0/?artist=${key}&api_key=${API_KEY}&format=json&method=artist.getinfo`;
   return fetch(IMAGE_URL).then(res => res.json()).then(data => data.artist.image[3]['#text']);
 }
