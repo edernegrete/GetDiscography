@@ -13,7 +13,7 @@ export function getAlbums(key) {
 }
 
 export function getImage(key) {
-  const IMAGE_URL = `http://ws.audioscrobbler.com/2.0/?artist=${key}&api_key=${API_KEY}&format=json&method=artist.getinfo`;
+  const IMAGE_URL = `https://ws.audioscrobbler.com/2.0/?artist=${key}&api_key=${API_KEY}&format=json&method=artist.getinfo`;
   return request(IMAGE_URL)
     .then((data) => {
       if (data.error) { return false; }
