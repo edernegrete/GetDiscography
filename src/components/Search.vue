@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     submit() {
-      if (this.search) { this.$store.dispatch('setValue', this.search); }
+      if (this.search) { this.$emit('search', this.search); }
     },
   },
 };

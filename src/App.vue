@@ -1,6 +1,6 @@
 <template lang="pug">
   div(id="app")
-    search-component
+    search-component(@search="dispatchSearch")
     div.loading(v-if="loading")
       spinner
     div.results(v-else-if="albums.length && !loading")
@@ -20,7 +20,7 @@
 import SearchComponent from './components/Search';
 import Spinner from './components/Spinner';
 import ImageTable from './components/ImageTable';
-import { getAlbums, getImage } from './api';
+import { getAlbums, getImage } from './api/requests';
 
 export default {
   name: 'app',
@@ -39,13 +39,17 @@ export default {
   watch: {
     searchValue(data) {
       this.loading = true;
-      getAlbums(data).then((res) => {
-        getImage(data).then((image) => {
-          this.image = image;
-          this.albums = res;
-          this.loading = false;
-        });
+      const dataRequests = [Promise.resolve(getAlbums(data)), Promise.resolve(getImage(data))];
+      Promise.all(dataRequests).then((res) => {
+        this.loading = false;
+        this.albums = res[0];
+        this.image = res[1];
       });
+    },
+  },
+  methods: {
+    dispatchSearch(value) {
+      this.$store.dispatch('setValue', value);
     },
   },
   components: {
