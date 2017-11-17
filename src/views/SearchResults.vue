@@ -31,7 +31,7 @@ export default {
     };
   },
   mounted() {
-    const value = this.searchValue ? this.searchValue : this.$route.params.id;
+    const value = this.$route.params.id;
     this.$store.dispatch('setValue', value);
   },
   computed: {

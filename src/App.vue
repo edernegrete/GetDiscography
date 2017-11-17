@@ -14,7 +14,6 @@ export default {
   name: 'app',
   methods: {
     dispatchSearch(value) {
-      this.$store.dispatch('setValue', value);
       this.$router.push({ name: 'search', params: { id: value } });
     },
   },
