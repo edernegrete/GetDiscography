@@ -1,61 +1,25 @@
 <template lang="pug">
   div(id="app")
     search-component(@search="dispatchSearch")
-    div.loading(v-if="loading")
-      spinner
-    div.results(v-else-if="albums.length && !loading")
-      div.container
-        img(:src="image" class="artist-image")
-        div.artist {{searchValue.toUpperCase()}}
-      div.table
-        image-table(v-for="album in albums" :album="album" :key="album.image")
-    div.error(v-else-if="!albums.length && !loading && searchValue")
-        span(style="error") No Results Found 🙁
     footer(class="footer white")
       span Made with ❤️ by &nbsp;
       a(href="https://twitter.com/ederyairr" class="white") @ederyairr
+    router-view
 </template>
 
 <script>
 import SearchComponent from './components/Search';
-import Spinner from './components/Spinner';
-import ImageTable from './components/ImageTable';
-import { getAlbums, getImage } from './api/requests';
 
 export default {
   name: 'app',
-  data() {
-    return {
-      albums: [],
-      image: '',
-      loading: false,
-    };
-  },
-  computed: {
-    searchValue() {
-      return this.$store.state.searchInput;
-    },
-  },
-  watch: {
-    searchValue(data) {
-      this.loading = true;
-      const dataRequests = [Promise.resolve(getAlbums(data)), Promise.resolve(getImage(data))];
-      Promise.all(dataRequests).then((res) => {
-        this.loading = false;
-        this.albums = res[0];
-        this.image = res[1];
-      });
-    },
-  },
   methods: {
     dispatchSearch(value) {
       this.$store.dispatch('setValue', value);
+      this.$router.push({ name: 'search', params: { id: value } });
     },
   },
   components: {
     SearchComponent,
-    Spinner,
-    ImageTable,
   },
 };
 </script>
