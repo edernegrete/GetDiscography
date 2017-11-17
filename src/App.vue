@@ -15,6 +15,7 @@ export default {
   methods: {
     dispatchSearch(value) {
       this.$router.push({ name: 'search', params: { id: value } });
+      this.$store.dispatch('setValue', value);
     },
   },
   components: {

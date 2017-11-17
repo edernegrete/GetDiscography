@@ -30,13 +30,9 @@ export default {
       loading: false,
     };
   },
-  mounted() {
-    const value = this.$route.params.id;
-    this.$store.dispatch('setValue', value);
-  },
   computed: {
     searchValue() {
-      return this.$store.state.searchInput;
+      return this.$store.getters.searchValue;
     },
   },
   watch: {
