@@ -20,7 +20,7 @@
 import SearchComponent from './components/Search';
 import Spinner from './components/Spinner';
 import ImageTable from './components/ImageTable';
-import { getAlbums, getImage } from './api';
+import { getAlbums, getImage } from './api/requests';
 
 export default {
   name: 'app',
