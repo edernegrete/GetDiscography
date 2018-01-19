@@ -15,7 +15,11 @@ export default {
   },
   methods: {
     submit() {
-      if (this.search) { this.$emit('search', this.search); }
+      if (this.search) {
+        const search = this.search;
+        this.$store.dispatch('setValue', search);
+        this.$router.push({ name: 'search', params: { id: search } });
+      }
     },
   },
 };
