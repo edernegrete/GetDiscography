@@ -39,14 +39,19 @@ export default {
   watch: {
     searchValue(data) {
       this.loading = true;
-      getAlbums(data).then((res) => {
-        getImage(data).then((image) => {
-          this.image = image;
-          this.albums = res;
-          this.loading = false;
-        });
+      const dataRequests = [Promise.resolve(getAlbums(data)), Promise.resolve(getImage(data))];
+      Promise.all(dataRequests).then((res) => {
+        this.loading = false;
+        this.albums = res[0];
+        this.image = res[1];
       });
     },
+  },
+  mounted() {
+    const params = this.$route.params.id;
+    if (params) {
+      this.$store.dispatch('setValue', params);
+    }
   },
   components: {
     SearchComponent,
