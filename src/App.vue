@@ -3,14 +3,14 @@
     search-component
     div.loading(v-if="loading")
       spinner
-    div.results(v-else-if="albums.length && !loading")
+    div.results(v-if="albums.length && !loading")
       div.container
         img(:src="image" class="artist-image")
         div.artist {{searchValue.toUpperCase()}}
       div.table
         image-table(v-for="album in albums" :album="album" :key="album.image")
-    div.error(v-else-if="!albums.length && !loading && searchValue")
-        span(style="error") No Results Found 🙁
+    div.error(v-else-if="error.hasError")
+      error-component(:errorMsg="error.msg")
     footer(class="footer white")
       span Made with ❤️ by &nbsp;
       a(href="https://twitter.com/ederyairr" class="white") @ederyairr
@@ -20,6 +20,7 @@
 import SearchComponent from './components/Search';
 import Spinner from './components/Spinner';
 import ImageTable from './components/ImageTable';
+import ErrorComponent from './components/Error';
 import { getAlbums, getImage } from './api/requests';
 
 export default {
@@ -29,6 +30,14 @@ export default {
       albums: [],
       image: '',
       loading: false,
+      errorMessages: {
+        notFound: 'No se encontraron resultados 🙁',
+        offline: '🆘 No tienes conexión a Internet 🆘',
+      },
+      error: {
+        hasError: false,
+        msg: '',
+      },
     };
   },
   computed: {
@@ -38,25 +47,60 @@ export default {
   },
   watch: {
     searchValue(data) {
+      if (!this.checkConection()) {
+        return;
+      }
       this.loading = true;
       const dataRequests = [Promise.resolve(getAlbums(data)), Promise.resolve(getImage(data))];
       Promise.all(dataRequests).then((res) => {
+        const albums = res[0];
+        const image = res[1];
+        if (this.isEmpty(albums)) {
+          this.loading = false;
+          return;
+        }
+        this.albums = albums;
+        this.image = image;
         this.loading = false;
-        this.albums = res[0];
-        this.image = res[1];
       });
     },
   },
   mounted() {
+    this.handleConection();
     const params = this.$route.params.id;
     if (params) {
       this.$store.dispatch('setValue', params);
     }
   },
+  methods: {
+    checkConection() {
+      const online = window.navigator.onLine;
+      return online;
+    },
+    handleConection() {
+      const isOnline = this.checkConection();
+      if (!isOnline) {
+        this.error.hasError = true;
+        this.error.msg = this.errorMessages.offline;
+      }
+    },
+    isEmpty(albums) {
+      if (!albums.length && this.searchValue) {
+        this.handleEmpty();
+        return true;
+      }
+      return false;
+    },
+    handleEmpty() {
+      this.error.hasError = true;
+      this.error.msg = this.errorMessages.notFound;
+    },
+  },
   components: {
     SearchComponent,
     Spinner,
     ImageTable,
+    ErrorComponent,
   },
 };
 </script>
@@ -87,9 +131,6 @@ export default {
     flex-wrap wrap
   .white
     color white
-  .error
-    color #ab0d0d
-    font-size 3rem
   #app
     background-color #0D0D0D
     font-family 'Montserrat'

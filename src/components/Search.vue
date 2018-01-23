@@ -2,7 +2,8 @@
   div.search
     span.search-title Type your favorite artist name
     input.b-input(placeholder="Start typing...", v-model="search" @keyup.enter="submit")
-    span(class="icon-search icon" @click="submit") 🔎
+    span(v-if="!toggleIcon" class="icon-search icon" @click="submit") 🔎
+    span(v-else class="icon" @click="clear") ❌
 </template>
 
 <script>
@@ -11,15 +12,21 @@ export default {
   data() {
     return {
       search: '',
+      toggleIcon: false,
     };
   },
   methods: {
     submit() {
       if (this.search) {
         const search = this.search;
+        this.toggleIcon = !!search;
         this.$store.dispatch('setValue', search);
         this.$router.push({ name: 'search', params: { id: search } });
       }
+    },
+    clear() {
+      this.toggleIcon = false;
+      this.search = '';
     },
   },
 };
